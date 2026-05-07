@@ -1,0 +1,20 @@
+name: 'Env Integrity Sentry'
+description: 'Audit environment variables and detect hardcoded secrets in CI/CD.'
+inputs:
+  path:
+    description: 'Path to the repository root'
+    required: false
+    default: '.'
+  json:
+    description: 'Output audit results in JSON format'
+    required: false
+    default: 'false'
+outputs:
+  audit-results:
+    description: 'The JSON string of the audit results'
+runs:
+  using: 'node20'
+  main: 'bin.cjs'
+branding:
+  icon: 'shield'
+  color: 'blue'

@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-05-07T00:20:15.630Z",
+  "project": "/Users/ajoxendine68/Documents/GitHub/env-integrity-sentry",
+  "summary": {
+    "variables_in_code": 5,
+    "missing_definitions": 5,
+    "potential_secrets": 0,
+    "orphaned_variables": 0
+  },
+  "issues": {
+    "missing_in_env": [
+      "AUDIT_LOG_LEVEL"
+    ],
+    "missing_in_code": [
+      "API_KEY",
+      "STRIPE_SECRET",
+      "SECURED_CREDENTIAL_002",
+      "DB_URL"
+    ],
+    "exposed_secrets": [],
+    "orphans": []
+  }
+}

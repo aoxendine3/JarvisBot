@@ -1,0 +1,5 @@
+.security_gate.json
+data/
+integrity.lock
+.env
+node_modules/
