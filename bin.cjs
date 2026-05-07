@@ -100,7 +100,7 @@ function scanSource(dir, vars = new Set(), depth = 0) {
 
             const secretMatches = content.matchAll(SECRETS_REGEX);
             for (const match of secretMatches) {
-                hardcodedSecrets.push({ file: fullPath.replace(process.cwd(), ''), preview: match[1].substring(0, 4) + '****' });
+                hardcodedSecrets.push({ file: fullPath.replace(process.cwd(), '') });
             }
         }
     }
@@ -181,8 +181,8 @@ async function run() {
             missingInCode.forEach(k => console.log(`- ${k}`));
         }
         if (hardcodedSecrets.length > 0) {
-            console.log(`\n${colors.red}Potential Secrets Found:${colors.reset}`);
-            hardcodedSecrets.forEach(s => console.log(`- ${s.file} (${s.preview})`));
+            console.log(`\n${colors.red}Potential Secrets Found (Redacted):${colors.reset}`);
+            hardcodedSecrets.forEach(s => console.log(`- ${s.file}`));
         }
         if (orphans.length > 0) {
             console.log(`\n${colors.yellow}Unused Variables:${colors.reset}`);
