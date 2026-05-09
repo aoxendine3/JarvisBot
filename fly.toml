@@ -1,0 +1,18 @@
+app = "env-integrity-sentry"
+primary_region = "iad"
+# Supported Regions: iad (US East), fra (Europe), sin (Asia)
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[build]
+  builtin = "node"
+
+[env]
+  PORT = "8080"
+  NODE_ENV = "production"

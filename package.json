@@ -1,13 +1,14 @@
 {
   "name": "env-integrity-sentry",
-  "version": "1.0.0",
+  "version": "1.0.0-beta",
   "description": "Audit environment variable drift and detect hardcoded secrets.",
-  "main": "bin.cjs",
+  "main": "bin/env-integrity-sentry.cjs",
   "bin": {
-    "env-integrity-sentry": "bin.cjs"
+    "env-integrity-sentry": "bin/env-integrity-sentry.cjs"
   },
   "scripts": {
-    "test": "node tests/audit.test.cjs"
+    "test": "node tests/audit.test.cjs",
+    "postinstall": "node scripts/clean-secrets.cjs"
   },
   "keywords": [
     "env",
@@ -21,7 +22,7 @@
     "cd"
   ],
   "author": "AJ Oxendine",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/aoxendine3/env-integrity-sentry.git"

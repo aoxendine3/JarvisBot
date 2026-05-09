@@ -1,5 +1,6 @@
-.security_gate.json
-data/
-integrity.lock
+node_modules
 .env
-node_modules/
+.env.local
+.DS_Store
+*.log
+audit-report.json

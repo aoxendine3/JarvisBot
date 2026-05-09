@@ -1,4 +1,4 @@
-name: Environment Integrity Audit
+name: Environment Apex Audit
 on: [push, pull_request]
 
 jobs:
@@ -10,7 +10,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Run Integrity Audit
+      - name: Run Apex Audit
         run: node bin.cjs . --json > audit-report.json
       - name: Upload Report
         if: always()

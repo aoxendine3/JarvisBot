@@ -1,0 +1,8 @@
+node_modules
+.DS_Store
+*.tgz
+fly.toml
+.env
+.env.local
+.env.integrity-ignore
+integrity.lock

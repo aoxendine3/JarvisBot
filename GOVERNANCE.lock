@@ -1,0 +1,16 @@
+{
+  "status": "LOCKED",
+  "timestamp": "2026-05-08T17:30:56.837Z",
+  "governance_hash": "b9f85c9d8f95e2f0d8ba1098c1119dadaa21a292ec0fa6855e49cb5af0058879b57945e7ea201f9972e4d9aa03f43032dc70778b801a07a37eccf9091321b218",
+  "salt": "d52eb4b9b5f601526be115748819a11d",
+  "integrity_map": {
+    "bin/env-integrity-sentry.cjs": "c8a9d10919e21f24b8b276957c1cd1142713892e3e571705b8cc4be68f93810c",
+    "lib/core/scanner.cjs": "8f11e5622e7b0b8df2b984dc35ecc2ce0245bd4d583cdfb6b087d12dbc1aeeaf",
+    "lib/core/verifier.cjs": "189ae2ffa056d208efe48089dd1ff6e76332cd9455187c2592c3438e6a057cfd",
+    "lib/integrations/stripe.cjs": "0053459660181a95107d6466e4d19685818ec5ab3f71a5fc58ce173979a342e8",
+    "locales.cjs": "081d0bb32f493a47885e8632c6b63e9c1d08267d3087fec34ebe33ced31afaf5",
+    "package.json": "7ff71d0caf5d9e493a27040ecdaeaf9fe517085d5daec59f5dae28e00a3a5cc2",
+    "ROADMAP_v2.md": "00ddc3ecb87f754b7cc4c87d0e918429919af54575bcb27867bd7e1dbb487882"
+  },
+  "enforcement_level": "STRICT"
+}

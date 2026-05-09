@@ -1,20 +1,21 @@
-name: 'Env Integrity Sentry'
-description: 'Audit environment variables and detect hardcoded secrets in CI/CD.'
+name: 'Deployment Safety Sentry'
+description: 'Enforce environment integrity and prevent broken deployments caused by missing variables.'
+author: 'Xoras Apex Sentry'
 inputs:
   path:
-    description: 'Path to the repository root'
+    description: 'The path to the repository to audit'
     required: false
     default: '.'
-  json:
-    description: 'Output audit results in JSON format'
+  upload-url:
+    description: 'Telemetry server URL to transmit reports to'
+    required: false
+  no-verify:
+    description: 'Set to true to skip SHA-256 integrity verification'
     required: false
     default: 'false'
-outputs:
-  audit-results:
-    description: 'The JSON string of the audit results'
 runs:
-  using: 'node20'
-  main: 'bin.cjs'
+  using: 'node16'
+  main: 'dist/index.js'
 branding:
   icon: 'shield'
-  color: 'blue'
+  color: 'green'
