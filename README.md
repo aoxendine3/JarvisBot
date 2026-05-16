@@ -46,6 +46,28 @@ If your team actively maintains open-source infrastructure or is onboarding to o
 - [System Architecture](docs/architecture.md)
 - [CI/CD Integration](docs/ci-integration.md)
 - [Configuration Guide](docs/configuration.md)
+
+### 📡 Secure Audit API
+
+All POST requests to `/api/upload` now require a `session_id` field. This token is generated once per host environment and stored in `.xoras_session` (mode 600). Include it in your JSON payload:
+
+```json
+{
+  "repository": "example/repo",
+  "detail": "audit data",
+  "session_id": "<YOUR_SESSION_TOKEN>"
+}
+```
+
+The server validates the token before persisting the audit record. Missing or mismatched tokens result in HTTP 403.
+
+To retrieve the token locally:
+```bash
+cat .xoras_session
+```
+
+Add the token to your CI secrets (e.g., `XORAS_SESSION_TOKEN`) and reference it in your audit scripts.
+
 - [Testing & Verification](docs/testing.md)
 
 ---
