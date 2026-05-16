@@ -207,19 +207,21 @@ async function run() {
         return;
     }
 
-    if (!isNoVerify) {
-        // Run verification before audit unless bypassed
-        const lockPath = path.join(process.cwd(), 'integrity.lock');
-        if (fs.existsSync(lockPath)) {
-            const lockContent = fs.readFileSync(lockPath, 'utf8');
-            const lines = lockContent.split(/\r?\n/).filter(l => l.trim());
-            for (const line of lines) {
-                const [expectedHash, fileName] = line.split(/\s+/);
-                const currentHash = getHash(path.join(process.cwd(), fileName));
-                if (currentHash !== expectedHash) {
-                    console.error(`${colors.red}❌ ${t('integrity_failure', { file: fileName })}${colors.reset}`);
-                    process.exit(2);
-                }
+    // Active Block-No-Verify Gating
+    if (isNoVerify) {
+        console.warn(`${colors.yellow}⚠️ SECURITY ALERT: --no-verify flag detected. In accordance with Q2 2026 zero-drift standards, compliance verification cannot be bypassed. Enforcing AST identity locks...${colors.reset}`);
+    }
+
+    const lockPath = path.join(process.cwd(), 'integrity.lock');
+    if (fs.existsSync(lockPath)) {
+        const lockContent = fs.readFileSync(lockPath, 'utf8');
+        const lines = lockContent.split(/\r?\n/).filter(l => l.trim());
+        for (const line of lines) {
+            const [expectedHash, fileName] = line.split(/\s+/);
+            const currentHash = getHash(path.join(process.cwd(), fileName));
+            if (currentHash !== expectedHash) {
+                console.error(`${colors.red}❌ ${t('integrity_failure', { file: fileName })}${colors.reset}`);
+                process.exit(2);
             }
         }
     }
