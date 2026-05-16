@@ -1,10 +1,10 @@
-# ⚙️ Universal Configuration & Operational Manifest
-**Configuring the Versatile XORAS Sentry, MCP Persistence Bridge, and Sovereign RevOps Loop.**
+# Configuration & Operational Manifest
+**Configuring the XORAS Sentry, MCP Persistence Bridge, and RevOps Loop.**
 
 ---
 
 ## 1. Multi-Tiered Configuration Hierarchy
-The XORAS runtime adapts dynamically to local developer environments, enterprise CI/CD runners, and distributed MCP server clusters. Configuration is resolved through a deterministic hierarchy:
+The XORAS runtime adapts to local developer environments, CI/CD runners, and MCP server clusters. Configuration is resolved through a deterministic hierarchy:
 1.  **Command Line Execution Flags:** Runtime overrides for immediate diagnostic sweeps.
 2.  **Environment Variables (`.env` & `.xoras_session`):** Secure runtime tokens and cryptographic keys.
 3.  **Institutional Manifest (`xoras.config.json`):** Unified repository governance and ignore rules.
@@ -44,7 +44,7 @@ For enterprise deployments, create a standardized `xoras.config.json` at the roo
 
 ---
 
-## 3. Secure Session & Token Gating (`.xoras_session`)
+## 3. Secure Session Token Gating (`.xoras_session`)
 To prevent unauthorized telemetry ingestion and secure distributed MCP communications, all audit events require a persistent session token:
 *   **Token Generation:** Created automatically on initial setup and stored in `.xoras_session` with strict file permissions (`chmod 600`).
 *   **CI/CD Injection:** Pass the token into your GitHub Actions runner as a secure repository secret (`XORAS_SESSION_TOKEN`).
@@ -56,13 +56,10 @@ ls -la .xoras_session
 
 ---
 
-## 4. Expansive Execution Flags
-The CLI and daemon runtimes support versatile operational modes:
+## 4. Execution Flags
+The CLI and daemon runtimes support the following operational modes:
 *   `--revops`: Initiate the 6-stage autonomous PR Sniper, Prioritizer, and DevRel closer loop.
 *   `--mcp-bridge [uri]`: Connect directly to a persistent SQLite Model Context Protocol SSE server.
-*   `--benchmark`: Execute live V8 Map vs Object JIT performance comparisons across 100,000 dynamic keys.
+*   `--benchmark`: Execute V8 Map vs Object JIT performance comparisons across 100,000 dynamic keys.
 *   `--sentry-lock`: Generate or verify the SHA-256 cryptographic self-attestation hash (`integrity.lock`).
 *   `--no-verify`: Temporarily bypass local pre-commit hooks for isolated testing environments.
-
----
-**Standardized. Gated. Versatile.**
