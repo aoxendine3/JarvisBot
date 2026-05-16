@@ -7,7 +7,7 @@
     "env-integrity-sentry": "bin/env-integrity-sentry.cjs"
   },
   "scripts": {
-    "test": "node tests/audit.test.cjs",
+    "test": "node tests/audit.test.cjs && node tests/quantum.test.cjs",
     "postinstall": "node scripts/clean-secrets.cjs"
   },
   "keywords": [
