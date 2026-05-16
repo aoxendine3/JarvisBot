@@ -1,35 +1,68 @@
-# Configuration Guide
-
-Deployment Safety is configured primarily through your project's environment files and an optional ignore manifest.
-
-## 1. Environment Files
-The tool uses two primary sources of truth:
-- **`.env`**: Your active environment variables.
-- **`.env.example`**: The baseline template for your project.
-
-The audit verifiers compare variables discovered in your code against these two files to determine drift.
-
-## 2. Ignore Rules (`.env-integrity-ignore`)
-To exclude non-critical variables or large directories, create a `.env-integrity-ignore` file in your root directory.
-
-### Example Manifest:
-```text
-# Ignore standard system vars
-LANG
-LC_ALL
-PORT
-
-# Ignore build artifacts
-dist/
-node_modules/
-.next/
-```
-
-## 3. CLI Flags
-- `--lang [code]`: Set reporting language (en, ja, zh, ko, es, fr, de, vi, th).
-- `--report`: Output results in structured JSON.
-- `--no-verify`: Skip integrity locking (Local development only).
-- `--swarm`: Enable autonomous monitoring mode.
+# ⚙️ Universal Configuration & Operational Manifest
+**Configuring the Versatile XORAS Sentry, MCP Persistence Bridge, and Sovereign RevOps Loop.**
 
 ---
-**Status**: v1.0.0-beta | Configurable | Lightweight.
+
+## 1. Multi-Tiered Configuration Hierarchy
+The XORAS runtime adapts dynamically to local developer environments, enterprise CI/CD runners, and distributed MCP server clusters. Configuration is resolved through a deterministic hierarchy:
+1.  **Command Line Execution Flags:** Runtime overrides for immediate diagnostic sweeps.
+2.  **Environment Variables (`.env` & `.xoras_session`):** Secure runtime tokens and cryptographic keys.
+3.  **Institutional Manifest (`xoras.config.json`):** Unified repository governance and ignore rules.
+
+---
+
+## 2. Institutional Manifest (`xoras.config.json`)
+For enterprise deployments, create a standardized `xoras.config.json` at the root of your workspace to govern AST inspection boundaries, memory caching, and DevRel outreach parameters.
+
+```json
+{
+  "$schema": "https://raw.githubusercontent.com/aoxendine3/xoras-core/main/schemas/config.schema.json",
+  "governance": {
+    "level": 4,
+    "enforceAsyncRoutes": true,
+    "maxRecursionDepth": 20,
+    "trapHighEntropySecrets": true
+  },
+  "memoryGrid": {
+    "indexingEngine": "V8_MAP_O1",
+    "mcpServerUri": "http://localhost:3002/sse",
+    "garbageCollectionIntervalMs": 60000
+  },
+  "outboundVector": {
+    "authorizedContact": "arvant.apex@gmail.com",
+    "commercialPilotValuation": 2000,
+    "openSourceDiscountPercentage": 50
+  },
+  "exclusionManifest": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/.next/**",
+    "**/scratch/**"
+  ]
+}
+```
+
+---
+
+## 3. Secure Session & Token Gating (`.xoras_session`)
+To prevent unauthorized telemetry ingestion and secure distributed MCP communications, all audit events require a persistent session token:
+*   **Token Generation:** Created automatically on initial setup and stored in `.xoras_session` with strict file permissions (`chmod 600`).
+*   **CI/CD Injection:** Pass the token into your GitHub Actions runner as a secure repository secret (`XORAS_SESSION_TOKEN`).
+
+```bash
+# Verify local session token security
+ls -la .xoras_session
+```
+
+---
+
+## 4. Expansive Execution Flags
+The CLI and daemon runtimes support versatile operational modes:
+*   `--revops`: Initiate the 6-stage autonomous PR Sniper, Prioritizer, and DevRel closer loop.
+*   `--mcp-bridge [uri]`: Connect directly to a persistent SQLite Model Context Protocol SSE server.
+*   `--benchmark`: Execute live V8 Map vs Object JIT performance comparisons across 100,000 dynamic keys.
+*   `--sentry-lock`: Generate or verify the SHA-256 cryptographic self-attestation hash (`integrity.lock`).
+*   `--no-verify`: Temporarily bypass local pre-commit hooks for isolated testing environments.
+
+---
+**Standardized. Gated. Versatile.**

@@ -1,31 +1,69 @@
-# System Architecture: The Layered Contract
-
-Deployment Safety is built as a **Layered Infrastructure Architecture**. This design decouples the deterministic core engine from its various delivery surfaces, ensuring stability, scalability, and integrity.
-
-## 1. Core Engine (The Contract)
-Located in `/lib/core/`, this is the project's "Source of Truth." It is boring, deterministic, and versioned.
-- **Scanner**: Discovery of environment variable patterns.
-- **Verifier**: Audit against baseline environment files.
-- **Policy**: Risk classification and exit logic determination.
-- **Apex**: SHA-256 cryptographic module verification.
-
-## 2. Interface Layer (The Surfaces)
-The core logic is wrapped in specialized interfaces to meet different operational needs:
-- **CLI (`/bin`)**: The primary surface for local development and manual audits.
-- **CI/CD (`.github/workflows`)**: Automated "Safety Gate" enforcement.
-- **Swarm (`swarm.cjs`)**: Proactive, autonomous monitoring surface.
-
-## 3. Governance Layer (Enterprise Value)
-This layer defines how the tool is used within an organization:
-- **Policies**: Structured ignore rules and risk thresholds.
-- **JSON Schema**: Machine-readable reporting for institutional integration.
-- **Apex Locking**: Cryptographic baseline enforcement for high-security pipelines.
-
-## 4. Distribution Layer (Adoption)
-The surfaces through which the tool is adopted and marketed:
-- **Documentation (`/docs`)**: Technical guides and FAQs.
-- **Commercial Model (`PRICING.md`)**: Value-based sub plans ($49 / $499 / $4,999).
-- **Brand Portal (`brands.html`)**: The Sovereign Integrity institutional entry point.
+# 🏛️ System Architecture: The Versatile Agentic Grid
+**Sovereign AST Reasoning, $O(1)$ Memory Ledger Indexing, and Autonomous RevOps Orchestration.**
 
 ---
-**Core Rule**: Core logic must remain unchanged unless fixing bugs. We scale the surfaces, not the engine.
+
+## 1. The Agentic Cognitive Core
+The XORAS ecosystem rejects the traditional dichotomy of static CLI tooling versus passive cloud monitoring. Located at the intersection of structural AST verification and autonomous agentic reasoning, the core engine operates as an adaptive, first-principles intelligence grid capable of continuous self-healing, multi-source orchestration, and real-time AST innovation.
+
+```mermaid
+graph TD
+    subgraph Multi-Modal Ingestion & Perception
+        FS[Filesystem Stream] --> AST[Hybrid AST Parser]
+        ENV[Environment Matrix] --> Token[High-Entropy Secret Gate]
+        Social[Global Developer Networks] --> Semantic[Semantic Lead Triage]
+    end
+
+    subgraph Sovereign Intelligence Runtime
+        AST --> V8[V8 O1 Memory Index]
+        Token --> V8
+        Semantic --> V8
+        V8 --> Cortex[Cognitive Reasoner & Archivist]
+    end
+
+    subgraph Autonomous Action Surfaces
+        Cortex --> |PR Sniper| GitHub[Automated Pull Request Dispatch]
+        Cortex --> |Persistence Bridge| MCP[XORAS MCP SQLite Server]
+        Cortex --> |DevRel Outbound| Comms[Multi-Channel Executive Outreach]
+    end
+```
+
+---
+
+## 2. Core Architectural Tranches
+
+### 🧠 2.1 The Cognitive Memory Ledger (`MemoryLedger`)
+To eliminate the latency and locking constraints of direct disk I/O under high concurrency, the runtime maintains dual V8 Maps (`this.cache` grouped by status and `this.itemIndex` keyed by unique SHA-256 identities):
+*   **Sub-Millisecond Indexing:** $O(1)$ lookup guarantees instant state transition across all six stages of the RevOps loop.
+*   **Garbage Collection Optimization:** Eliminates memory leak accumulation and linear heap growth under sustained enterprise workloads.
+
+### 🔬 2.2 Hybrid AST Precision Engine
+Rather than relying on fragile regex string matching, the engine constructs abstract syntax trees for target JavaScript and TypeScript files:
+*   **Next.js 15 Asynchronous Route Verification:** Dynamically traverses route handlers to enforce correct asynchronous parameter destructuring (`await params`).
+*   **Structural Secret Trapping:** Evaluates token entropy and AST context to prevent false positives while maintaining absolute zero-leakage finality.
+
+### 🌉 2.3 The Model Context Protocol (MCP) Persistence Bridge
+The runtime connects to dedicated MCP servers (`XORAS_MCP_SERVER`) to synchronize state across distributed agentic clusters:
+*   **Relational SQLite Auditing:** Ingests persistent audit events and reconstructs repository memory caches instantly upon startup.
+*   **Serverless Edge Parity:** Gated by standardized POSIX exit statuses (Code 0 success / Code 1 tamper trap) to ensure absolute runtime environment parity.
+
+---
+
+## 3. Autonomous Execution Surfaces
+
+```text
+┌─────────────────────────────────────────────────────────────────┐
+│                       XORAS AGENTIC RUNTIME                     │
+├─────────────────┬─────────────────────────────┬─────────────────┤
+│   CI/CD SENTRY  │   UNIVERSAL REVOPS LOOP     │  CEO EXECUTIVE  │
+│ Pre-commit gate │ 6-stage sniper & dispatcher │ Social & Growth │
+└─────────────────┴─────────────────────────────┴─────────────────┘
+```
+
+Rather than locking functionality inside a rigid CLI box, the XORAS architecture scales across three distinct execution vectors:
+1.  **Local Pre-Commit Sentry:** Instant local AST scanning and cryptographic manifest locking (`integrity.lock`).
+2.  **Autonomous RevOps Master:** Continuous background execution of PR monitoring, triage, and DevRel closer daemons.
+3.  **CEO Social & Growth Orchestrator:** High-level executive agent routing commercial partnerships and DevRel communications to authorized channels (`arvant.apex@gmail.com`).
+
+---
+**Standardized. Versatile. Uncompromised.**
