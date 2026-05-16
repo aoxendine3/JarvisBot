@@ -1,6 +1,6 @@
-name: 'Deployment Safety Sentry'
+name: 'XORAS Release Integrity Sentry'
 description: 'Enforce environment integrity and prevent broken deployments caused by missing variables.'
-author: 'Xoras Apex Sentry'
+author: 'XORAS Engineering'
 inputs:
   path:
     description: 'The path to the repository to audit'

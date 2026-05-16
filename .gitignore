@@ -4,3 +4,8 @@ node_modules
 .DS_Store
 *.log
 audit-report.json
+audit_report.json
+*.db
+*.sqlite
+*.jws
+scratch/

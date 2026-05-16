@@ -8,7 +8,7 @@ Add the following step to your `.github/workflows/deploy.yml` before your deploy
 
 ```yaml
 - name: Audit Environment Apex
-  uses: SOVEREIGN-INTEGRITY/env-integrity-sentry@v1.0.0-beta
+  uses: XORAS-ENGINEERING/env-integrity-sentry@v1.0.0-beta
   with:
     path: '.'
     # upload-url: 'https://telemetry.yourdomain.com'

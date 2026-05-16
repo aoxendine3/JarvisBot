@@ -224,7 +224,7 @@ async function run() {
         }
     }
 
-    const { vars, hardcodedSecrets } = scanSource(targetDir);
+    const { vars, hardcodedSecrets, asyncParamsDrift } = scanSource(targetDir);
     const { missingFromEnv, missingFromAll, activeEnv, exampleEnv } = audit(targetDir, vars);
     
     // Filter framework and internal noise
@@ -238,6 +238,11 @@ async function run() {
 
     const orphans = Object.keys(activeEnv).filter(key => !vars.has(key) && !(key in exampleEnv));
 
+    if (asyncParamsDrift && asyncParamsDrift.length > 0) {
+        console.log(`\n${colors.red}❌ NEXT.JS 15 BREAKING CHANGE DETECTED: Synchronous Dynamic Route Params Drift${colors.reset}`);
+        asyncParamsDrift.forEach(m => console.log(`  [-] ${m.file} -> ${m.match}`));
+    }
+
     if (missingFromEnv.length > 0) {
         console.log(`\n${colors.yellow}${t('expected_but_unset')}${colors.reset}`);
         missingFromEnv.forEach(m => console.log(`- ${m.key} [${m.type}]`));
@@ -248,7 +253,7 @@ async function run() {
         filteredMissingFromAll.forEach(m => console.log(`- ${m.key} [${m.type}]`));
     }
 
-    const totalMissing = missingFromEnv.length + filteredMissingFromAll.length;
+    const totalMissing = missingFromEnv.length + filteredMissingFromAll.length + (asyncParamsDrift ? asyncParamsDrift.length : 0);
     if (totalMissing > 0) {
         console.log(`\n${colors.red}${t('audit_failed', { count: totalMissing })}${colors.reset}`);
     } else {
@@ -257,8 +262,8 @@ async function run() {
 
     const result = {
         timestamp: new Date().toISOString(),
-        summary: { unexpected_missing: totalMissing, secrets: hardcodedSecrets.length, orphans: orphans.length },
-        findings: { missingFromEnv, missingFromAll, hardcodedSecrets, orphans }
+        summary: { unexpected_missing: totalMissing, secrets: hardcodedSecrets.length, orphans: orphans.length, async_params_drift: asyncParamsDrift ? asyncParamsDrift.length : 0 },
+        findings: { missingFromEnv, missingFromAll, hardcodedSecrets, orphans, asyncParamsDrift }
     };
 
     // Save report for dashboard telemetry

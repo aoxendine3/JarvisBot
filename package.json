@@ -33,7 +33,12 @@
   "homepage": "https://github.com/aoxendine3/env-integrity-sentry#readme",
   "type": "commonjs",
   "dependencies": {
+    "@types/uuid": "^10.0.0",
     "body-parser": "^2.2.2",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^6.0.1",
+    "stripe": "^22.1.1",
+    "uuid": "^14.0.0"
   }
 }

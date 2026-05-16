@@ -1,14 +1,22 @@
 {
-  "timestamp": "2026-05-09T07:35:19.786Z",
+  "timestamp": "2026-05-16T06:25:09.928Z",
   "summary": {
-    "unexpected_missing": 0,
+    "unexpected_missing": 1,
     "secrets": 0,
-    "orphans": 0
+    "orphans": 0,
+    "async_params_drift": 0
   },
   "findings": {
-    "missingFromEnv": [],
+    "missingFromEnv": [
+      {
+        "key": "VAR1",
+        "type": "General",
+        "class": "expected but unset"
+      }
+    ],
     "missingFromAll": [],
     "hardcodedSecrets": [],
-    "orphans": []
+    "orphans": [],
+    "asyncParamsDrift": []
   }
 }

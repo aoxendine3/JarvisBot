@@ -5,14 +5,20 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af52
+        with:
+          persist-credentials: false
       
       - name: Install Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@60edb5dd545a775178f525247a6a91c73a14e420
         with:
           node-version: 20
           
@@ -28,9 +34,14 @@ jobs:
   deploy:
     needs: validate
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     if: github.ref == 'refs/heads/main'
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af52
+        with:
+          persist-credentials: false
       - name: Deploy to Fly.io
         run: npx -y flyctl deploy --remote-only
         env:

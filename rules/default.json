@@ -1,0 +1,32 @@
+{
+    "profiles": [
+        {
+            "name": "SECRET_EXPOSURE",
+            "min_entropy": 3.8,
+            "min_length": 12,
+            "patterns": [
+                "(?:key|secret|token|password|auth|api|id)['\"]?\\s*[:=]\\s*['\"]([a-zA-Z0-9_\\-\\.]{12,})['\"]"
+            ],
+            "context_keywords": ["SECRET", "KEY", "TOKEN", "AUTH", "CREDENTIAL"],
+            "severity": "CRITICAL"
+        },
+        {
+            "name": "ENV_DRIFT",
+            "patterns": [
+                "process\\.env\\.([A-Z_][A-Z0-9_]*)",
+                "process\\.env\\[['\"]([A-Z_][A-Z0-9_]*)['\"]\\]",
+                "const \\{ ([A-Z_][A-Z0-9_]*,\\s]*) \\} = process\\.env"
+            ],
+            "severity": "ADVISORY"
+        }
+    ],
+    "exclusions": [
+        "node_modules/**",
+        ".git/**",
+        "dist/**",
+        "docs/**",
+        "benchmarks/**",
+        "*.test.js",
+        "*.spec.js"
+    ]
+}

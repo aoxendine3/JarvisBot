@@ -1,0 +1,32 @@
+{
+  "policy_name": "INSTITUTIONAL_CORE_V1",
+  "budgets": {
+    "performance": {
+      "max_latency_drift_percent": 15,
+      "block_threshold_percent": 25
+    },
+    "security": {
+      "allowed_vulnerabilities": 0,
+      "allowed_exposed_secrets": 0
+    },
+    "architecture": {
+      "max_dependencies": 40,
+      "bloat_warning_threshold": 30
+    }
+  },
+  "version": "1.0.0",
+  "enforcement": {
+    "default_mode": "STRICT",
+    "allow_force_pass": true,
+    "notify_channels": [
+      "slack",
+      "email"
+    ]
+  },
+  "suppressions": [
+    {
+      "id": "DEV_DEPS_DRIFT",
+      "reason": "Development dependencies are excluded from production bloat counts"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+name: XORAS GATEKEEPER
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install XORAS Core
+        run: npm install
+      - name: Execute Regression Audit
+        run: |
+          node bin/xoras-audit.cjs --target ${{ github.event.pull_request.head.sha }} --baseline main --threshold-latency 15 --fail-on-critical
+        env:
+          XORAS_TOKEN: ${{ secrets.XORAS_TOKEN }}
+      - name: Report Drift to PR
+        if: always()
+        run: node bin/xoras-reporter.cjs --pr ${{ github.event.pull_request.number }}
