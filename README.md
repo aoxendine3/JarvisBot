@@ -38,7 +38,7 @@ We deploy custom, high-throughput pre-commit sentries tailored to your enterpris
 **⚡ Open-Source Maintainer & Early Adopter Incentive:**
 If your team actively maintains open-source infrastructure or is onboarding to our Level-4 sentry suite, we waive our $500 setup fee and offer a **50% discount on your first quarter pilot** ($1,000 total).
 
-📧 **Direct Contact**: [Connect with Anthony via LinkedIn / Email](mailto:aoxendine3@gmail.com) | [XORAS Institutional Portal](https://aoxendine3.github.io/)
+📧 **Direct Contact**: [Connect with Anthony via LinkedIn / Email](mailto:arvant.apex@gmail.com) | [XORAS Institutional Portal](https://aoxendine3.github.io/)
 
 ---
 
